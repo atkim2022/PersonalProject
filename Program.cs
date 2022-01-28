@@ -13,31 +13,53 @@ namespace PersonalProject
             // I've fixed a few compilation errors. I've also added an example here showing you
             // how you can change the color of the text in the terminal.
 
-            Console.WriteLine("Hello World!");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Hello World!");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Hello World!");
+            // Console.WriteLine("Hello World!");
+            // Console.ForegroundColor = ConsoleColor.Green;
+            // Console.WriteLine("Hello World!");
+            // Console.ForegroundColor = ConsoleColor.Red;
+            // Console.WriteLine("Hello World!");
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("H");
-            Console.Write("e");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("l");
-            Console.Write("l");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("o");
-            Console.Write(" ");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("W");
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("o");
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write("r");
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write("l");
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("d");
+            // Console.ForegroundColor = ConsoleColor.Green;
+            // Console.Write("H");
+            // Console.Write("e");
+            // Console.ForegroundColor = ConsoleColor.Red;
+            // Console.Write("l");
+            // Console.Write("l");
+            // Console.ForegroundColor = ConsoleColor.White;
+            // Console.Write("o");
+            // Console.Write(" ");
+            // Console.ForegroundColor = ConsoleColor.Blue;
+            // Console.Write("W");
+            // Console.ForegroundColor = ConsoleColor.DarkGreen;
+            // Console.Write("o");
+            // Console.ForegroundColor = ConsoleColor.DarkRed;
+            // Console.Write("r");
+            // Console.ForegroundColor = ConsoleColor.Magenta;
+            // Console.Write("l");
+            // Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            // Console.Write("d");
+
+            if (args.Length > 0 && args [0] == "test")
+            {
+               TestAll();
+               return;  
+            }
+        }
+
+        public static void TestAll()
+        {
+            bool testDisplayCharInfo = TestDisplayCharInfo.RunTest();
+            Console.WriteLine($"TestDisplayCharInfo(char guess, int pos, string correct): {testDisplayCharInfo}");
+
+            bool testDisplayInfo = TestDisplayInfo.RunTest();
+            Console.WriteLine($"TestDisplayInfo(string guess, string correct): {testDisplayInfo}");
+
+            bool testGetGuess = TestGetGuess.RunTest();
+            Console.WriteLine($"TestDisplayCharInfo(string correctWord): {testGetGuess}");
+
+            bool testGetRandomWord = TestGetRandomWord.RunTest();
+            Console.WriteLine($"TestDisplayCharInfo(): {testGetRandomWord}");
+
         }
 
         /// <summary>
@@ -46,8 +68,6 @@ namespace PersonalProject
         /// <returns>The word at position 'ix'</returns>
         public static string GetRandomWord()
         {
-            // Feedback(jcollard 2022-01-28): I cleaned the line below to remove the compilation errors
-            List<string> words = File.ReadAllLines("words.txt").ToList();
         // 1. Load a filed called `words.txt`
         // 2. Store each line as a separate word in a list named `words`
         // 3. Generate a random number between 0 and `words.Count` and store the result in
@@ -61,7 +81,7 @@ namespace PersonalProject
         /// </summary>
         /// <param name="correctWord">The correct word that the player is guessing.</param>
         /// <returns>The player's inputted guess</returns>
-        static string GetGuess(string correctWord) //TODO(jcollard 2022-01-28): Add a public in front of this method
+        public static string GetGuess(string correctWord)
         {
             Console.WriteLine("Input guess:");
             Console.ReadLine();
@@ -101,7 +121,6 @@ namespace PersonalProject
         // 4. Display the guess
         // 5. Reset the color back to white before returning
         }
-
-
     }
 }
+
