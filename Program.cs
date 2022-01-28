@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic; // Feedback(jcollard 2022-01-28): This allows us to use List
+using System.Linq; // Feedback(jcollard 2022-01-28): This allows us to use call "ToList" on files
+using System.IO; // Feedback(jcollard 2022-01-28): This allows us to load files
 
 namespace PersonalProject
 {
@@ -6,7 +9,35 @@ namespace PersonalProject
     {
         static void Main(string[] args)
         {
+            // Feedback(jcollard 2022-01-28): Great job! These look fantastic!
+            // I've fixed a few compilation errors. I've also added an example here showing you
+            // how you can change the color of the text in the terminal.
 
+            Console.WriteLine("Hello World!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Hello World!");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Hello World!");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("H");
+            Console.Write("e");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("l");
+            Console.Write("l");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("o");
+            Console.Write(" ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("W");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("o");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("r");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("l");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("d");
         }
 
         /// <summary>
@@ -15,7 +46,8 @@ namespace PersonalProject
         /// <returns>The word at position 'ix'</returns>
         public static string GetRandomWord()
         {
-            words = System.IO.File.ReadAllText(words.txt);
+            // Feedback(jcollard 2022-01-28): I cleaned the line below to remove the compilation errors
+            List<string> words = File.ReadAllLines("words.txt").ToList();
         // 1. Load a filed called `words.txt`
         // 2. Store each line as a separate word in a list named `words`
         // 3. Generate a random number between 0 and `words.Count` and store the result in
@@ -29,7 +61,7 @@ namespace PersonalProject
         /// </summary>
         /// <param name="correctWord">The correct word that the player is guessing.</param>
         /// <returns>The player's inputted guess</returns>
-        static string GetGuess(string correctWord)
+        static string GetGuess(string correctWord) //TODO(jcollard 2022-01-28): Add a public in front of this method
         {
             Console.WriteLine("Input guess:");
             Console.ReadLine();
