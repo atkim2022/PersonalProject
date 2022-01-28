@@ -9,7 +9,11 @@ namespace PersonalProject
     {
         public static bool RunTest()
         {
-            return false;
+        // 1. Validate that the guess and correct word are the same length
+        // 2. If the lengths do not match, throw an exception
+        // 3. If they match, iterate through each character:
+        // 4. Use the DisplayCharInfo method to determine what color to print the character
+            return true;
         }
     }
 
