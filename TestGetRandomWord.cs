@@ -23,13 +23,32 @@ namespace PersonalProject
             // You can also test that the word that was generated is a word from the list.
         
             List<string> words = File.ReadAllLines("words.txt").ToList();
+            
+            string randomWord = Program.GetRandomWord();
 
-            if (ix <= 0)
+            if (!words.Contains(randomWord))
             {
-                Console.Error.WriteLine("This position in the word.txt file doe not exist");
+                return false;
             }
 
-        
+            if (randomWord.Length != 5)
+            {
+                Console.Error.WriteLine("The random word to guess should be 5 letters long.");
+                return false; 
+            }
+
+            HashSet<string> randomWords = new HashSet<string>();
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            randomWords.Add(Program.GetRandomWord());
+            if (randomWords.Count < 2)
+            {
+                return false;
+            }
 
             return true; 
         }

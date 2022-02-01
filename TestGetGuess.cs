@@ -14,11 +14,14 @@ namespace PersonalProject
         // 3. If guess is the correct length (the guess and random word should be the same length), return the guess.
         // 4. Otherwise, display an error message and ask them to make another guess.
 
-            if ()
-            {
+            string guess = Program.GetGuess("banana");
 
+            Console.WriteLine("Input 'banana'.");
+            Console.WriteLine("The program should fail because it is not 5 characters long.");
             
-            }
+
+// ask the player to type in "earth" then tell the player what the expected message should be. 
+
             return true;
         }
     }
