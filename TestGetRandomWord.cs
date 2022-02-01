@@ -14,6 +14,13 @@ namespace PersonalProject
         // 3. Generate a random number between 0 and `words.Count` and store the result in
         //    a variable called `ix`
         // 4. Return the word at position `ix`. (e.g. `words[ix]`)  
+
+        // TODO(jcollard 2022-02-01): 
+            // What are the properties of the words in your "words.txt" file?
+            // Do all of the words have at least 5 letters? 
+            // You can also test that when you call GetRandomWord() that it returns different words.
+            // For example, if you call it 10 times, you should probably get back a few different words.
+            // You can also test that the word that was generated is a word from the list.
         
             List<string> words = File.ReadAllLines("words.txt").ToList();
 
