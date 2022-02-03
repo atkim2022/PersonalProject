@@ -14,7 +14,22 @@ namespace PersonalProject
         // 3. If the guess is not in the correct word, select red.
         // 4. Display the guess
         // 5. Reset the color back to white before returning
+
+        Console.WriteLine("You should see a green 'c'");
+            Program.DisplayCharInfo('c', 0, "color");
+
+            Console.WriteLine("You should see a yellow 'c'");
+            Program.DisplayCharInfo('c', 1, "color");
+
+
+            Console.WriteLine("Did all of the outputs look correct? Type 'y'");
+            string input = Console.ReadLine();
+            if (input != "y"){
+                return false;
+            }
             return false;
+
+            // just repeat for more scenarios
         }
     }
 

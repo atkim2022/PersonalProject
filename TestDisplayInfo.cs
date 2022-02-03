@@ -9,7 +9,7 @@ namespace PersonalProject
     {
         public static bool RunTest()
         {
-            string info = Program.DisplayInfo("accuracy");
+            // string info = Program.DisplayInfo("accuracy");
         // 1. Validate that the guess and correct word are the same length
         // 2. If the lengths do not match, throw an exception
         // 3. If they match, iterate through each character:
@@ -21,6 +21,13 @@ namespace PersonalProject
             // What happens if you pass the arguments 'c', 1, "accuracy"?
             // What happens if you pass the arguments 'a', 0, "banana"?
             // What happens if you pass the arguments 'f', 3, "joker"?
+
+            Program.DisplayInfo("color", "boons");
+            Console.WriteLine("Did all of the outputs look correct? Type 'y'");
+            string input = Console.ReadLine();
+            if (input != "y"){
+                return false;
+            }
 
             return true;
         }

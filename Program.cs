@@ -89,7 +89,7 @@ namespace PersonalProject
         // 2. Read input from the keyboard and store the results in a variable named guess
         // 3. If guess is the correct length (the guess and random word should be the same length), return the guess.
         // 4. Otherwise, display an error message and ask them to make another guess.
-            return null;
+            return "spoon";
         }
 
         /// <summary>
