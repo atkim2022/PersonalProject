@@ -9,6 +9,7 @@ namespace PersonalProject
     {
         public static bool RunTest()
         {
+            string info = Program.DisplayInfo("accuracy");
         // 1. Validate that the guess and correct word are the same length
         // 2. If the lengths do not match, throw an exception
         // 3. If they match, iterate through each character:
