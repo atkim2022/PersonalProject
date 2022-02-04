@@ -10,13 +10,6 @@ namespace PersonalProject
         public static bool RunTest()
         {
 
-        // TODO(jcollard 2022-02-01): Think about calling the method Program.DisplayCharInfo
-            // What are different arguments that you could pass to the method?
-            // What would the different results be?
-            // What happens if you pass the arguments 'c', 1, "accuracy"?
-            // What happens if you pass the arguments 'a', 0, "banana"?
-            // What happens if you pass the arguments 'f', 3, "joker"?
-
             Console.WriteLine("You should see a all red except the 1st 'o' should be green and the 2nd 'o' should be yellow.");
             Program.DisplayInfo("color", "boons");
 
