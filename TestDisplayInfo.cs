@@ -9,11 +9,6 @@ namespace PersonalProject
     {
         public static bool RunTest()
         {
-            // string info = Program.DisplayInfo("accuracy");
-        // 1. Validate that the guess and correct word are the same length
-        // 2. If the lengths do not match, throw an exception
-        // 3. If they match, iterate through each character:
-        // 4. Use the DisplayCharInfo method to determine what color to print the character
 
         // TODO(jcollard 2022-02-01): Think about calling the method Program.DisplayCharInfo
             // What are different arguments that you could pass to the method?
@@ -22,10 +17,19 @@ namespace PersonalProject
             // What happens if you pass the arguments 'a', 0, "banana"?
             // What happens if you pass the arguments 'f', 3, "joker"?
 
+            Console.WriteLine("You should see a all red except the 1st 'o' should be green and the 2nd 'o' should be yellow.");
             Program.DisplayInfo("color", "boons");
+
+            Console.WriteLine("You should see a all red.");
+            Program.DisplayInfo("books", "drive");
+            
+            Console.WriteLine("You should see all green.");
+            Program.DisplayInfo("drive", "drive");
+            
             Console.WriteLine("Did all of the outputs look correct? Type 'y'");
             string input = Console.ReadLine();
-            if (input != "y"){
+            if (input != "y")
+            {
                 return false;
             }
 

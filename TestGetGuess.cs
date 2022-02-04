@@ -29,11 +29,13 @@ namespace PersonalProject
                 return false;
             }
 
-
-            
-            
-
-// ask the player to type in "earth" then tell the player what the expected message should be. 
+            Console.WriteLine("3. Enter 'gravy'. This should work.");
+            string expected2 = "gravy";
+            if(guess != expected2)
+            {
+                Console.Error.WriteLine($"Expected {expected} but result was {guess}");
+                return false;
+            }
 
             return true;
         }
