@@ -44,6 +44,9 @@ namespace PersonalProject
 
         public static void TestAll()
         {
+            bool testGetRandomWord = TestGetRandomWord.RunTest();
+            Console.WriteLine($"GetRandomWord(): {testGetRandomWord}");
+
             bool testDisplayCharInfo = TestDisplayCharInfo.RunTest();
             Console.WriteLine($"TestDisplayCharInfo(char guess, int pos, string correct): {testDisplayCharInfo}");
 
@@ -51,11 +54,7 @@ namespace PersonalProject
             Console.WriteLine($"TestDisplayInfo(string guess, string correct): {testDisplayInfo}");
 
             bool testGetGuess = TestGetGuess.RunTest();
-            Console.WriteLine($"TestDisplayCharInfo(string correctWord): {testGetGuess}");
-
-            bool testGetRandomWord = TestGetRandomWord.RunTest();
-            Console.WriteLine($"TestDisplayCharInfo(): {testGetRandomWord}");
-
+            Console.WriteLine($"TestGetGuess(string correctWord): {testGetGuess}");
         }
 
 
@@ -72,19 +71,21 @@ namespace PersonalProject
         // 3. Generate a random number between 0 and `words.Count` and store the result in
         //    a variable called `ix`
         // 4. Return the word at position `ix`. (e.g. `words[ix]`)
-            Console.WriteLine("Welcome to Wordle!");
-            List<string> words = File.ReadAllLines("words.txt").ToList();
-
+        
             // Feedback(jcollard 2022-02-08): To generate a random word you need
             // to use the Random class. I've added a demo for you here:
             // https://dotnetfiddle.net/vREaLH
-            words.Count = randomint;
+
+            Console.WriteLine("Welcome to Wordle!");
+            List<string> words = File.ReadAllLines("words.txt").ToList();
+            Random r = new Random();
+            int randomIndex = r.Next(0, words.Count);
+            string correctWord = words[randomIndex];
             Console.WriteLine("The word is 5 letters long.");
-            String guess;
-        
             return null;
         }
 
+       
         /// <summary>
         /// Asks the user to make a guess and validates the input before returning the guess.
         /// </summary>
@@ -92,41 +93,40 @@ namespace PersonalProject
         /// <returns>The player's inputted guess</returns>
         public static string GetGuess(string correctWord)
         {
-            Console.WriteLine("Input guess:");
-            // TODO(jcollard: 2022-02-08): You need to store the value in a string. For example:
-            // string userInput = Console.ReadLine();
-            Console.ReadLine();
+        //     Console.WriteLine("Input guess:");
+        //     string guess = Console.ReadLine();
            
-            if (guess.Length != 5)
-            {
-                 Console.Error.WriteLine("Your guess should be 5 letters long.");
-            }
+        //     if (guess.Length != 5)
+        //     {
+        //          Console.Error.WriteLine("Your guess should be 5 letters long.");
+        //     }
             
-            else
-            {
-                if (guess = CorrectWord) // TODO(jcollard 2022-02-08): You should use `==` when comparing values.
-                {
-                    //game won
-                }
+        //     else
+        //     {
+        //         if (guess == correctWord) // TODO(jcollard 2022-02-08): You should use `==` when comparing values.
+        //         {
+        //             //game won
+        //         }
 
-                else 
-                {
-                    // keeps going
-                }
-        // 1. Prompt the user to make a guess
-        // 2. Read input from the keyboard and store the results in a variable named guess
-        // 3. If guess is the correct length (the guess and random word should be the same length), return the guess.
-        // 4. Otherwise, display an error message and ask them to make another guess.
+        //         else 
+        //         {
+        //             // keeps going
+        //         }
+        // // 1. Prompt the user to make a guess
+        // // 2. Read input from the keyboard and store the results in a variable named guess
+        // // 3. If guess is the correct length (the guess and random word should be the same length), return the guess.
+        // // 4. Otherwise, display an error message and ask them to make another guess.
             return "spoon";
         }
 
+       
         /// <summary>
         /// Given a guess and the correct word to be guessed, displays the guess to the screen coloring each character 
         /// based on its position and if it is in the correct word.
         /// </summary>
         /// <param name="guess">The player's guess</param>
         /// <param name="correct">The correct word to guess</param>
-        public static void DisplayInfo(string guess, string correct)
+        public static void DisplayInfo(string guess, string correctWord)
         {
         // 1. Validate that the guess and correct word are the same length
         // 2. If the lengths do not match, throw an exception
@@ -134,6 +134,7 @@ namespace PersonalProject
         // 4. Use the DisplayCharInfo method to determine what color to print the character
         }
 
+        
         /// <summary>
         /// Given a guessed character, the position of that guess, and the correct word, select the correct color 
         /// for the guess and write it to the console.
@@ -141,7 +142,7 @@ namespace PersonalProject
         /// <param name="guess">The player's inputted guess</param>
         /// <param name="pos">The position of the characters in the guess</param>
         /// <param name="correct">The correct word to guess</param>
-        public static void DisplayCharInfo(char guess, int pos, string correct)
+        public static void DisplayCharInfo(char guess, int pos, string correctWord)
         {
         // 1. If the guess is in the correct position, select the color green.
         // 2. If the guess is in the correct word but not correct position, select yellow.
