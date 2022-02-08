@@ -9,10 +9,6 @@ namespace PersonalProject
     {
         static void Main(string[] args)
         {
-            // Feedback(jcollard 2022-01-28): Great job! These look fantastic!
-            // I've fixed a few compilation errors. I've also added an example here showing you
-            // how you can change the color of the text in the terminal.
-
             // Console.WriteLine("Hello World!");
             // Console.ForegroundColor = ConsoleColor.Green;
             // Console.WriteLine("Hello World!");
@@ -62,6 +58,9 @@ namespace PersonalProject
 
         }
 
+
+
+
         /// <summary>
         /// Randomly generates a random word to be guessed.
         /// </summary>
@@ -73,6 +72,12 @@ namespace PersonalProject
         // 3. Generate a random number between 0 and `words.Count` and store the result in
         //    a variable called `ix`
         // 4. Return the word at position `ix`. (e.g. `words[ix]`)
+            Console.WriteLine("Welcome to Wordle!");
+            List<string> words = File.ReadAllLines("words.txt").ToList();
+            words.Count = randomint;
+            Console.WriteLine("The word is 5 letters long.");
+            String guess;
+        
             return null;
         }
 
@@ -85,6 +90,23 @@ namespace PersonalProject
         {
             Console.WriteLine("Input guess:");
             Console.ReadLine();
+           
+            if (guess.Length != 5)
+            {
+                 Console.Error.WriteLine("Your guess should be 5 letters long.");
+            }
+            
+            else
+            {
+                if (guess = CorrectWord)
+                {
+                    //game won
+                }
+
+                else 
+                {
+                    // keeps going
+                }
         // 1. Prompt the user to make a guess
         // 2. Read input from the keyboard and store the results in a variable named guess
         // 3. If guess is the correct length (the guess and random word should be the same length), return the guess.
