@@ -74,6 +74,10 @@ namespace PersonalProject
         // 4. Return the word at position `ix`. (e.g. `words[ix]`)
             Console.WriteLine("Welcome to Wordle!");
             List<string> words = File.ReadAllLines("words.txt").ToList();
+
+            // Feedback(jcollard 2022-02-08): To generate a random word you need
+            // to use the Random class. I've added a demo for you here:
+            // https://dotnetfiddle.net/vREaLH
             words.Count = randomint;
             Console.WriteLine("The word is 5 letters long.");
             String guess;
@@ -89,6 +93,8 @@ namespace PersonalProject
         public static string GetGuess(string correctWord)
         {
             Console.WriteLine("Input guess:");
+            // TODO(jcollard: 2022-02-08): You need to store the value in a string. For example:
+            // string userInput = Console.ReadLine();
             Console.ReadLine();
            
             if (guess.Length != 5)
@@ -98,7 +104,7 @@ namespace PersonalProject
             
             else
             {
-                if (guess = CorrectWord)
+                if (guess = CorrectWord) // TODO(jcollard 2022-02-08): You should use `==` when comparing values.
                 {
                     //game won
                 }
