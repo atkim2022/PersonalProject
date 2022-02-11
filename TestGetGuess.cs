@@ -29,11 +29,13 @@ namespace PersonalProject
                 return false;
             }
 
+
             Console.WriteLine("3. Enter 'gravy'. This should work.");
+            guess = Program.GetGuess("angry");
             string expected2 = "gravy";
             if(guess != expected2)
             {
-                Console.Error.WriteLine($"Expected {expected} but result was {guess}");
+                Console.Error.WriteLine($"Expected {expected2} but result was {guess}");
                 return false;
             }
 

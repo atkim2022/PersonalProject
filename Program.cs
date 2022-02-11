@@ -9,51 +9,30 @@ namespace PersonalProject
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
-            // Console.ForegroundColor = ConsoleColor.Green;
-            // Console.WriteLine("Hello World!");
-            // Console.ForegroundColor = ConsoleColor.Red;
-            // Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to Wordle!");
+            string correctWord = GetRandomWord();
+            Boolean isGameWon = false;
+            string guess;
 
-            // Console.ForegroundColor = ConsoleColor.Green;
-            // Console.Write("H");
-            // Console.Write("e");
-            // Console.ForegroundColor = ConsoleColor.Red;
-            // Console.Write("l");
-            // Console.Write("l");
-            // Console.ForegroundColor = ConsoleColor.White;
-            // Console.Write("o");
-            // Console.Write(" ");
-            // Console.ForegroundColor = ConsoleColor.Blue;
-            // Console.Write("W");
-            // Console.ForegroundColor = ConsoleColor.DarkGreen;
-            // Console.Write("o");
-            // Console.ForegroundColor = ConsoleColor.DarkRed;
-            // Console.Write("r");
-            // Console.ForegroundColor = ConsoleColor.Magenta;
-            // Console.Write("l");
-            // Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            // Console.Write("d");
+            while (isGameWon == false)
+            {
+                guess = GetGuess(correctWord);
+                if (guess == correctWord)
+                {
+                    isGameWon = true;
+                    Console.WriteLine($"You won! The word was {correctWord}");
+                }
+                else
+                {
+                    DisplayInfo(guess, correctWord);
+                }
+            }
 
             if (args.Length > 0 && args [0] == "test")
             {
-               TestAll();
-               return;  
+                TestAll();
+                return;  
             }
-
-            // TODO(jcollard 2022-02-11): After you have finished all of your
-            // methods, you will put your actual program logic here where you
-            // connect all of the parts together.
-            //
-            // In your case you would have something like this:
-            // 1. Displays a Welcome Message
-            // 2. A random word is then generated (GetRandomWord)
-            // while (the-game-is-not-won)
-            // 3. The player is asked to make a guess (GetGuess)
-            // 4. If the guess is correct, the player wins
-            // 5. If the guess is incorrect:
-            //     - The player receives information based on their guess (DisplayInfo)
-            //     - The game continues to step 3
         }
 
         public static void TestAll()
@@ -84,28 +63,11 @@ namespace PersonalProject
             // to use the Random class. I've added a demo for you here:
             // https://dotnetfiddle.net/vREaLH
 
-            Console.WriteLine("Welcome to Wordle!");
             List<string> words = File.ReadAllLines("words.txt").ToList();
             Random r = new Random();
             int randomIndex = r.Next(0, words.Count);
             string correctWord = words[randomIndex];
-            // TODO(jcollard 2022-02-11): This method simply generates a random
-            // work and returns it The code below should be part of your Main
-            // method.
-            Console.WriteLine("The word is 5 letters long.");
-            Console.WriteLine("Input guess:");
-            string guess = Console.ReadLine();
-            
-            if (guess == correctWord)
-            {
-                //WIN
-            }
-
-            else 
-            {
-                //CALLS CHAR INFOR STUFF
-            }
-            return null;
+            return correctWord;
         }
 
        
@@ -118,26 +80,13 @@ namespace PersonalProject
         {
             Console.WriteLine("Input guess:");
             string guess = Console.ReadLine();
-           
-            // TODO(jcollard 2022-02-11): This method should read user input
-            // and verify that it is a valid input. If it is not, this method
-            // should loop and get another prompt.
-            //
-            // We did this in the Console Guessing Game project. I would start
-            // by reviewing my code there.
 
             if (guess.Length != 5)
                 {
                     Console.Error.WriteLine("Your guess should be 5 letters long. Make a valid guess.");
+                    return GetGuess(correctWord);
                 }
-            else if (guess == correctWord) 
-                {
-                    // Feedback(jcollard 2022-02-11): This method should only
-                    // validate the user input. It doesn't check if the guess
-                    // was correct. This will be done in your Main method.
-                   Console.WriteLine("You won! You guessed the correct word.");
-                }
-
+                  
             return guess; 
         }
 
@@ -152,18 +101,16 @@ namespace PersonalProject
         {
             if (guess.Length != correctWord.Length)
             {
-                throw new exception ($"expected {guess} and {correctWord} to have the same length."); // TODO(jcollard 2022-02-11): Change to `Exception` with a capital E
+                throw new Exception ($"expected {guess} and {correctWord} to have the same length."); 
             }
 
             int pos = 0; 
 
             while (pos < correctWord.Length)
             {
-                  guessChar = guess[pos]; // TODO(jcollard 2022-02-11): Change to `char guessChar = guess[pos];`
-                  correctChar = correctWord[pos]; // TODO(jcollard 2022-02-11): I don't think you need this line
-                  // TODO(jcollard 2022-02-11): Try `DisplayCharInfo(guessChar, pos, correctWord)`
-                  //something that calls char info? 
-                  pos ++; 
+                 char guessChar = guess[pos]; 
+                 DisplayCharInfo(guessChar, pos, correctWord);
+                 pos ++; 
             }
 
             return;
@@ -181,24 +128,22 @@ namespace PersonalProject
         {
             if (guess == correctWord[pos])
             {
-                Console.WriteLine(guess[pos]); // TODO(jcollard 2022-02-11): Try `Console.Write(guess)`
-                Console.ForegroundColor = ConsoleColor.Green; // TODO(jcollard 2022-02-11): You need to set the color
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(guess); 
             }
 
-            if else (correctWord.Containsguess) // TODO(jcollard 2022-02-11): Try `else if (correctWord.Contains(guess))`
+            else if (correctWord.Contains(guess)) 
             {
-                Console.WriteLine(guess[pos]); // TODO(jcollard 2022-02-11): Try `Console.Write(guess)`
                 Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(guess); 
             }
 
             else 
             {
-                Console.WriteLine(guess[pos]); // TODO(jcollard 2022-02-11): Try `Console.Write(guess)`
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(guess); 
             }
-
-            // DISPLAY GUESS
-            // TODO(jcollard 2022-02-11): Set the console color back to White when you're done
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

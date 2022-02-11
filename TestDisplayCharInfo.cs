@@ -11,23 +11,22 @@ namespace PersonalProject
         {
     
 
-            Console.WriteLine("You should see a green 'c'");
+            Console.Write("You should see a green 'c'");
             Program.DisplayCharInfo('c', 0, "color");
 
-            Console.WriteLine("You should see a yellow 'c'");
+            Console.Write("You should see a yellow 'c'");
             Program.DisplayCharInfo('c', 1, "color");
 
 
             Console.WriteLine("Did all of the outputs look correct? Type 'y'");
             string input = Console.ReadLine();
-            if (input != "y"){
+            if (input != "y")
+            {
                 return false;
             }
 
-            // TODO(jcollard: 2022-02-04): If you make it to the end of the test, return true
-            return false;
-
-            // just repeat for more scenarios
+            
+            return true;
         }
     }
 
